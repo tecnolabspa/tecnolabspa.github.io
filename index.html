@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
-    <aside class="sidebar">
+    <header class="sidebar">
         <div class="logo">
             Tecnolab SPA
         </div>
@@ -20,7 +22,7 @@
             <a href="#nosotros">Nosotros</a>
             <a href="#contacto">Contacto</a>
         </nav>
-    </aside>
+    </header>
 
     <main>
 
@@ -35,6 +37,10 @@
 
                 <a href="#contacto" class="btn">
                     Contáctanos
+                </a>
+                <a href="https://wa.me/56912345678?text=Hola,%20quiero%20más%20información" class="btn btn-whatsapp"
+                    target="_blank">
+                    WhatsApp
                 </a>
             </div>
         </section>
@@ -73,15 +79,15 @@
 
         <section id="contacto" class="content-section">
             <h2>Contacto</h2>
-
-            <form>
-                <input type="text" placeholder="Nombre">
-                <input type="email" placeholder="Correo">
-                <textarea rows="5" placeholder="Mensaje"></textarea>
-
+            <form action="https://formsubmit.co/gianfranco.varela.galaz@gmail.com" method="POST">
+                <input type="hidden" name="_next" value="https://tecnolabspa.github.io">
+                <input type="text" name="nombre" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="mensaje" placeholder="Mensaje" required> </textarea>
                 <button type="submit">
                     Enviar
                 </button>
+
             </form>
         </section>
 
@@ -91,5 +97,12 @@
 
     </main>
 
+
+    <a href="https://wa.me/56912345678?text=Hola,%20quiero%20cotizar" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+
 </body>
+
 </html>
