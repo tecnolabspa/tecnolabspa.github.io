@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -430,3 +431,4 @@ footer {
 .whatsapp-float:hover {
     transform: scale(1.08);
 }
+

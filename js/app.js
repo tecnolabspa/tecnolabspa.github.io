@@ -61,3 +61,43 @@ if (carouselTrack && prevButton && nextButton && dots.length) {
     updateCarousel(0);
     startSlideShow();
 }
+
+const headerHeight = document.querySelector('.sidebar')?.offsetHeight || 75;
+
+function smoothScrollTo(targetPosition, duration = 500) {
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const startTime = performance.now();
+
+    function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+
+    function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeInOutQuad(progress);
+        window.scrollTo(0, startPosition + distance * ease);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', event => {
+        const targetId = anchor.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (!targetElement) return;
+
+        event.preventDefault();
+
+        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+        smoothScrollTo(targetPosition, 500);
+    });
+});
